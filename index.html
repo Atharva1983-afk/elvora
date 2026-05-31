@@ -886,7 +886,7 @@
             <div class="cart-footer">
                 <div class="cart-total">
                     <span>Total:</span>
-                    <span class="cart-total-amount" id="cartTotal">$0.00</span>
+                    <span class="cart-total-amount" id="cartTotal">₹0.00</span>
                 </div>
                 <button class="checkout-btn" id="checkoutBtn">
                     <i class="fas fa-credit-card"></i> Proceed to Checkout
@@ -1002,7 +1002,7 @@
                 alert('Your cart is empty!');
                 return;
             }
-            alert(`Thank you! Processing ${cart.reduce((sum, item) => sum + item.quantity, 0)} items for $${cartTotalEl.textContent}. 
+            alert(`Thank you! Processing ₹{cart.reduce((sum, item) => sum + item.quantity, 0)} items for ₹₹{cartTotalEl.textContent}. 
             This is a demo - integrate Stripe/PayPal here!`);
             cart = [];
             saveCart();
@@ -1017,7 +1017,7 @@
             const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
 
             cartCountEl.textContent = totalItems;
-            cartTotalEl.textContent = `$${totalPrice}`;
+            cartTotalEl.textContent = `₹₹{totalPrice}`;
 
             if (cart.length === 0) {
                 cartItemsEl.innerHTML = `
@@ -1037,17 +1037,17 @@
                         <div class="skeleton" style="width: 60px; height: 60px;"></div>
                     </div>
                     <div class="cart-item-details">
-                        <h4>${item.name}</h4>
+                        <h4>₹{item.name}</h4>
                         <p>60 gummies (30 servings)</p>
                         <div class="quantity-controls">
-                            <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">−</button>
-                            <span class="qty-display">${item.quantity}</span>
-                            <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            <button class="qty-btn" onclick="updateQuantity(₹{item.id}, -1)">−</button>
+                            <span class="qty-display">₹{item.quantity}</span>
+                            <button class="qty-btn" onclick="updateQuantity(₹{item.id}, 1)">+</button>
                         </div>
                     </div>
                     <div class="cart-item-price">
-                        $${(item.price * item.quantity).toFixed(2)}
-                        <button class="remove-item" onclick="removeItem(${item.id})">
+                        ₹₹{(item.price * item.quantity).toFixed(2)}
+                        <button class="remove-item" onclick="removeItem(₹{item.id})">
                             <i class="fas fa-trash"></i> Remove
                         </button>
                     </div>
